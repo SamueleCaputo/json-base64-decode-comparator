@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="it">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,7 +9,7 @@
 
   <!-- SEO base -->
   <meta name="description"
-        content="JSON Comparator online gratuito: confronta due JSON o base64, normalizza ignorando l’ordine, evidenzia differenze riga per riga, copia i risultati e lavora direttamente nel browser." />
+    content="JSON Comparator online gratuito: confronta due JSON o base64, normalizza ignorando l’ordine, evidenzia differenze riga per riga, copia i risultati e lavora direttamente nel browser." />
   <meta name="robots" content="index,follow" />
   <meta name="author" content="JSON Comparator" />
   <link rel="canonical" href="https://www.tuodominio.it/json-comparator" />
@@ -17,7 +18,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="JSON Comparator Online – Confronto JSON, Normalizzazione e Diff" />
   <meta property="og:description"
-        content="Strumento gratuito per confrontare due JSON: parsing anche da base64, normalizzazione, diff con evidenziazione visiva e numeri di riga, scroll sincronizzato e copia rapida." />
+    content="Strumento gratuito per confrontare due JSON: parsing anche da base64, normalizzazione, diff con evidenziazione visiva e numeri di riga, scroll sincronizzato e copia rapida." />
   <meta property="og:url" content="https://www.tuodominio.it/json-comparator" />
   <meta property="og:site_name" content="JSON Comparator" />
 
@@ -25,16 +26,13 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="JSON Comparator Online – Confronto JSON, Normalizzazione e Diff" />
   <meta name="twitter:description"
-        content="Confronta JSON online, normalizza ignorando l’ordine ed evidenzia solo le differenze, con copie rapide." />
+    content="Confronta JSON online, normalizza ignorando l’ordine ed evidenzia solo le differenze, con copie rapide." />
 
   <meta name="keywords"
-        content="json comparator, confronto json, json diff, json online, confronta json, json normalizzato, base64 json, strumento sviluppatori" />
+    content="json comparator, confronto json, json diff, json online, confronta json, json normalizzato, base64 json, strumento sviluppatori" />
 
   <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
     body {
@@ -50,7 +48,8 @@
       margin-bottom: 0;
       font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
         "Courier New", monospace;
-      line-height: 0.8; /* interlinea compatta */
+      line-height: 0.8;
+      /* interlinea compatta */
     }
 
     /* ogni riga */
@@ -96,6 +95,7 @@
     .tool-nav a {
       text-decoration: none;
     }
+
     .tool-nav a:hover {
       text-decoration: underline;
     }
@@ -169,879 +169,906 @@
   }
   </script>
 </head>
+
 <body>
-<header class="py-3 border-bottom bg-white">
-  <div class="container-fluid">
-    <div class="d-flex flex-wrap justify-content-between align-items-center">
-      <a href="https://www.tuodominio.it/json-comparator"
-         class="navbar-brand fw-bold text-decoration-none text-dark">
-        JSON Comparator
-      </a>
-      <nav class="tool-nav small">
-        <a href="#tool" class="me-3 text-secondary">Strumento</a>
-        <a href="#come-funziona" class="me-3 text-secondary">Come funziona</a>
-        <a href="#faq-json-comparator" class="text-secondary">FAQ</a>
-      </nav>
-    </div>
-  </div>
-</header>
-
-<main class="container-fluid py-4" id="tool">
-  <div class="row justify-content-center">
-    <section class="col-12 col-xl-10 col-xxl-8">
-      <div class="mb-3">
-        <h1 class="h4 mb-1">JSON Comparator Online</h1>
-        <p class="text-muted small mb-1">
-          Confronta due JSON (o base64 di JSON) affiancati, normalizzali ignorando l’ordine ed evidenzia solo le differenze riga per riga.
-        </p>
-        <p class="text-muted small mb-0">
-          Ideale per sviluppatori backend, integratori di API, tester e chiunque lavori con payload JSON complessi.
-        </p>
+  <header class="py-3 border-bottom bg-white">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <a href="https://www.tuodominio.it/json-comparator" class="navbar-brand fw-bold text-decoration-none text-dark">
+          JSON Comparator
+        </a>
+        <nav class="tool-nav small">
+          <a href="#tool" class="me-3 text-secondary">Strumento</a>
+          <a href="#come-funziona" class="me-3 text-secondary">Come funziona</a>
+          <a href="#faq-json-comparator" class="text-secondary">FAQ</a>
+        </nav>
       </div>
+    </div>
+  </header>
 
-      <section class="mb-3" id="come-funziona">
-        <h2 class="h6">Come funziona il confronto tra JSON</h2>
-        <p class="small text-muted mb-1">
-          Incolla i due JSON (o le rispettive rappresentazioni in base64) nei campi qui sotto e premi
-          <strong>“Confronta”</strong>. Lo strumento:
-        </p>
-        <ul class="small text-muted mb-1">
-          <li>tenta il parsing come JSON e, in caso di errore, prova la decodifica base64;</li>
-          <li>normalizza la struttura ignorando l’ordine di chiavi e liste;</li>
-          <li>evidenzia le differenze nel diff bidirezionale, riga per riga;</li>
-          <li>mostra i JSON normalizzati affiancati con <strong>numeri di riga</strong> e <strong>scroll sincronizzato</strong>;</li>
-          <li>permette di copiare rapidamente ciascun JSON normalizzato con un pulsante dedicato.</li>
-        </ul>
-      </section>
-
-      <!-- INPUT -->
-      <section aria-label="Inserimento JSON da confrontare">
-        <div class="row g-3 mb-3">
-          <div class="col-12 col-lg-6">
-            <label for="input1" class="form-label small fw-bold">
-              JSON 1 (input o base64)
-            </label>
-            <textarea
-              id="input1"
-              class="form-control font-monospace"
-              rows="10"
-              placeholder="Incolla qui il primo JSON o base64..."
-              aria-label="Primo JSON o stringa base64 da confrontare"
-            ></textarea>
-          </div>
-          <div class="col-12 col-lg-6">
-            <label for="input2" class="form-label small fw-bold">
-              JSON 2 (input o base64)
-            </label>
-            <textarea
-              id="input2"
-              class="form-control font-monospace"
-              rows="10"
-              placeholder="Incolla qui il secondo JSON o base64..."
-              aria-label="Secondo JSON o stringa base64 da confrontare"
-            ></textarea>
-          </div>
+  <main class="container-fluid py-4" id="tool">
+    <div class="row justify-content-center">
+      <section class="col-12 col-xl-10 col-xxl-8">
+        <div class="mb-3">
+          <h1 class="h4 mb-1">JSON Comparator Online</h1>
+          <p class="text-muted small mb-1">
+            Confronta due JSON (o base64 di JSON) affiancati, normalizzali ignorando l’ordine ed evidenzia solo le
+            differenze riga per riga.
+          </p>
+          <p class="text-muted small mb-0">
+            Ideale per sviluppatori backend, integratori di API, tester e chiunque lavori con payload JSON complessi.
+          </p>
         </div>
 
-        <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
-          <button id="compareButton" class="btn btn-primary" type="button">
-            Confronta
-          </button>
-          <span id="result" class="fw-semibold small" aria-live="polite"></span>
-        </div>
-      </section>
+        <section class="mb-3" id="come-funziona">
+          <h2 class="h6">Come funziona il confronto tra JSON</h2>
+          <p class="small text-muted mb-1">
+            Incolla i due JSON (o le rispettive rappresentazioni in base64) nei campi qui sotto e premi
+            <strong>“Confronta”</strong>. Lo strumento:
+          </p>
+          <ul class="small text-muted mb-1">
+            <li>tenta il parsing come JSON e, in caso di errore, prova la decodifica base64;</li>
+            <li>normalizza la struttura ignorando l’ordine di chiavi e liste;</li>
+            <li>evidenzia le differenze nel diff bidirezionale, riga per riga;</li>
+            <li>mostra i JSON normalizzati affiancati con <strong>numeri di riga</strong> e <strong>scroll
+                sincronizzato</strong>;</li>
+            <li>permette di copiare rapidamente ciascun JSON normalizzato con un pulsante dedicato.</li>
+          </ul>
+        </section>
 
-      <!-- OUTPUT -->
-      <section aria-label="Risultato del confronto JSON">
-        <div class="row g-3">
-          <div class="col-12 col-lg-6">
-            <div class="d-flex justify-content-between align-items-center mb-1">
-              <span class="small fw-bold">JSON 1 normalizzato</span>
-              <button type="button" class="btn btn-sm btn-secondary" id="copyLeft" aria-label="Copia JSON 1 normalizzato">
-                Copia
-              </button>
+        <!-- INPUT -->
+        <section aria-label="Inserimento JSON da confrontare">
+          <div class="row g-3 mb-3">
+            <div id="result" class="alert d-none" role="alert" aria-live="polite">
+              <h4 class="alert-heading mb-1" id="resultTitle"></h4>
+              <p class="mb-0" id="resultText"></p>
             </div>
-            <pre id="output1"
-                 class="output p-2 rounded border compare-left-output"
-                 aria-label="JSON 1 normalizzato e numerato"></pre>
-          </div>
-          <div class="col-12 col-lg-6">
-            <div class="d-flex justify-content-between align-items-center mb-1">
-              <span class="small fw-bold">JSON 2 normalizzato</span>
-              <button type="button" class="btn btn-sm btn-secondary" id="copyRight" aria-label="Copia JSON 2 normalizzato">
-                Copia
-              </button>
+
+            <div class="col-12 col-lg-6">
+              <label for="input1" class="form-label small fw-bold">
+                JSON 1 (input o base64)
+              </label>
+              <textarea id="input1" class="form-control font-monospace" rows="10"
+                placeholder="Incolla qui il primo JSON o base64..."
+                aria-label="Primo JSON o stringa base64 da confrontare"></textarea>
             </div>
-            <pre id="output2"
-                 class="output p-2 rounded border compare-right-output"
-                 aria-label="JSON 2 normalizzato e numerato"></pre>
+            <div class="col-12 col-lg-6">
+              <label for="input2" class="form-label small fw-bold">
+                JSON 2 (input o base64)
+              </label>
+              <textarea id="input2" class="form-control font-monospace" rows="10"
+                placeholder="Incolla qui il secondo JSON o base64..."
+                aria-label="Secondo JSON o stringa base64 da confrontare"></textarea>
+            </div>
           </div>
-        </div>
+
+          <div class="d-flex align-items-center gap-3 mb-3 flex-wrap">
+            <button id="compareButton" class="btn btn-primary" type="button">
+              Confronta
+            </button>
+          </div>
+        </section>
+
+        <!-- OUTPUT -->
+        <section aria-label="Risultato del confronto JSON">
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-bold">JSON 1 normalizzato</span>
+                <button type="button" class="btn btn-sm btn-secondary" id="copyLeft"
+                  aria-label="Copia JSON 1 normalizzato">
+                  Copia
+                </button>
+              </div>
+              <pre id="output1" class="output p-2 rounded border compare-left-output"
+                aria-label="JSON 1 normalizzato e numerato"></pre>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="small fw-bold">JSON 2 normalizzato</span>
+                <button type="button" class="btn btn-sm btn-secondary" id="copyRight"
+                  aria-label="Copia JSON 2 normalizzato">
+                  Copia
+                </button>
+              </div>
+              <pre id="output2" class="output p-2 rounded border compare-right-output"
+                aria-label="JSON 2 normalizzato e numerato"></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="mt-4" id="faq-json-comparator">
+          <h2 class="h6 mb-2">Domande frequenti sul JSON Comparator</h2>
+
+          <div class="mb-2">
+            <h3 class="small fw-bold mb-1">A cosa serve questo JSON Comparator online?</h3>
+            <p class="small text-muted mb-0">
+              Serve a verificare rapidamente se due payload JSON sono equivalenti a prescindere dall’ordinamento,
+              evidenziando esattamente dove differiscono e mostrando i JSON normalizzati con numeri di riga.
+            </p>
+          </div>
+
+          <div class="mb-2">
+            <h3 class="small fw-bold mb-1">Il tool supporta input in base64?</h3>
+            <p class="small text-muted mb-0">
+              Sì, puoi incollare direttamente una stringa base64 che rappresenta un JSON. Il sistema la decodifica e
+              prova a interpretarla come JSON in maniera automatica.
+            </p>
+          </div>
+
+          <div class="mb-2">
+            <h3 class="small fw-bold mb-1">L’ordine delle chiavi e delle liste viene considerato?</h3>
+            <p class="small text-muted mb-0">
+              No. I JSON vengono normalizzati in modo da ignorare l’ordine di oggetti e liste, così puoi confrontare
+              strutture anche quando i campi sono in posizioni diverse.
+            </p>
+          </div>
+
+          <div class="mb-2">
+            <h3 class="small fw-bold mb-1">Posso copiare i JSON normalizzati?</h3>
+            <p class="small text-muted mb-0">
+              Certo. I pulsanti “Copia” sopra ciascun riquadro permettono di copiare il JSON normalizzato negli appunti
+              per incollarlo altrove (editor, IDE, ticket, documentazione, ecc.).
+            </p>
+          </div>
+        </section>
       </section>
+    </div>
+  </main>
 
-      <!-- FAQ -->
-      <section class="mt-4" id="faq-json-comparator">
-        <h2 class="h6 mb-2">Domande frequenti sul JSON Comparator</h2>
+  <footer class="border-top py-3 bg-white mt-4">
+    <div class="container-fluid small text-muted d-flex flex-wrap justify-content-between">
+      <span>© <span id="yearFooter"></span> JSON Comparator – Strumento gratuito per il confronto di JSON.</span>
+      <span>Ottimizzato per sviluppatori, QA e integrazioni API.</span>
+    </div>
+  </footer>
 
-        <div class="mb-2">
-          <h3 class="small fw-bold mb-1">A cosa serve questo JSON Comparator online?</h3>
-          <p class="small text-muted mb-0">
-            Serve a verificare rapidamente se due payload JSON sono equivalenti a prescindere dall’ordinamento,
-            evidenziando esattamente dove differiscono e mostrando i JSON normalizzati con numeri di riga.
-          </p>
-        </div>
+  <script>
+    (function () {
+      const PREFERRED_KEY_NAMES = ["codPrestazione", "id", "uuid", "code", "key"];
 
-        <div class="mb-2">
-          <h3 class="small fw-bold mb-1">Il tool supporta input in base64?</h3>
-          <p class="small text-muted mb-0">
-            Sì, puoi incollare direttamente una stringa base64 che rappresenta un JSON. Il sistema la decodifica e
-            prova a interpretarla come JSON in maniera automatica.
-          </p>
-        </div>
+      let lastFormattedText1 = "";
+      let lastFormattedText2 = "";
 
-        <div class="mb-2">
-          <h3 class="small fw-bold mb-1">L’ordine delle chiavi e delle liste viene considerato?</h3>
-          <p class="small text-muted mb-0">
-            No. I JSON vengono normalizzati in modo da ignorare l’ordine di oggetti e liste, così puoi confrontare
-            strutture anche quando i campi sono in posizioni diverse.
-          </p>
-        </div>
+      function parseJsonOrBase64(raw, label) {
+        raw = raw.trim();
+        if (!raw) {
+          throw new Error(label + " vuoto.");
+        }
 
-        <div class="mb-2">
-          <h3 class="small fw-bold mb-1">Posso copiare i JSON normalizzati?</h3>
-          <p class="small text-muted mb-0">
-            Certo. I pulsanti “Copia” sopra ciascun riquadro permettono di copiare il JSON normalizzato negli appunti
-            per incollarlo altrove (editor, IDE, ticket, documentazione, ecc.).
-          </p>
-        </div>
-      </section>
-    </section>
-  </div>
-</main>
+        try {
+          return JSON.parse(raw);
+        } catch (e) { }
 
-<footer class="border-top py-3 bg-white mt-4">
-  <div class="container-fluid small text-muted d-flex flex-wrap justify-content-between">
-    <span>© <span id="yearFooter"></span> JSON Comparator – Strumento gratuito per il confronto di JSON.</span>
-    <span>Ottimizzato per sviluppatori, QA e integrazioni API.</span>
-  </div>
-</footer>
-
-<script>
-(function () {
-  const PREFERRED_KEY_NAMES = ["codPrestazione", "id", "uuid", "code", "key"];
-
-  let lastFormattedText1 = "";
-  let lastFormattedText2 = "";
-
-  function parseJsonOrBase64(raw, label) {
-    raw = raw.trim();
-    if (!raw) {
-      throw new Error(label + " vuoto.");
-    }
-
-    try {
-      return JSON.parse(raw);
-    } catch (e) {}
-
-    try {
-      const decoded = atob(raw);
-      return JSON.parse(decoded);
-    } catch (e) {
-      throw new Error(
-        label +
-          " non è né un JSON valido né un base64 contenente un JSON.\nDettagli: " +
-          (e && e.message ? e.message : e)
-      );
-    }
-  }
-
-  function jsTypeTag(v) {
-    if (v === null) return "null";
-    if (Array.isArray(v)) return "array";
-    return typeof v;
-  }
-
-  function pyTypeName(v) {
-    if (v === null) return "NoneType";
-    if (Array.isArray(v)) return "list";
-    const t = typeof v;
-    if (t === "string") return "str";
-    if (t === "number") return Number.isInteger(v) ? "int" : "float";
-    if (t === "boolean") return "bool";
-    if (t === "object") return "dict";
-    return t;
-  }
-
-  function topLevelLen(v) {
-    const t = jsTypeTag(v);
-    if (t === "array") return v.length;
-    if (t === "object") return Object.keys(v).length;
-    return 1;
-  }
-
-  function compareFrozen(a, b) {
-    if (a === b) return 0;
-
-    const aIsArray = Array.isArray(a);
-    const bIsArray = Array.isArray(b);
-
-    if (aIsArray && bIsArray) {
-      const len = Math.min(a.length, b.length);
-      for (let i = 0; i < len; i++) {
-        const cmp = compareFrozen(a[i], b[i]);
-        if (cmp !== 0) return cmp;
+        try {
+          const decoded = atob(raw);
+          return JSON.parse(decoded);
+        } catch (e) {
+          throw new Error(
+            label +
+            " non è né un JSON valido né un base64 contenente un JSON.\nDettagli: " +
+            (e && e.message ? e.message : e)
+          );
+        }
       }
-      return a.length - b.length;
-    }
 
-    if (!aIsArray && !bIsArray) {
-      const ta = typeof a;
-      const tb = typeof b;
+      function jsTypeTag(v) {
+        if (v === null) return "null";
+        if (Array.isArray(v)) return "array";
+        return typeof v;
+      }
 
-      if (ta === tb) {
-        if (ta === "string") {
-          if (a < b) return -1;
-          if (a > b) return 1;
+      function pyTypeName(v) {
+        if (v === null) return "NoneType";
+        if (Array.isArray(v)) return "list";
+        const t = typeof v;
+        if (t === "string") return "str";
+        if (t === "number") return Number.isInteger(v) ? "int" : "float";
+        if (t === "boolean") return "bool";
+        if (t === "object") return "dict";
+        return t;
+      }
+
+      function topLevelLen(v) {
+        const t = jsTypeTag(v);
+        if (t === "array") return v.length;
+        if (t === "object") return Object.keys(v).length;
+        return 1;
+      }
+
+      function compareFrozen(a, b) {
+        if (a === b) return 0;
+
+        const aIsArray = Array.isArray(a);
+        const bIsArray = Array.isArray(b);
+
+        if (aIsArray && bIsArray) {
+          const len = Math.min(a.length, b.length);
+          for (let i = 0; i < len; i++) {
+            const cmp = compareFrozen(a[i], b[i]);
+            if (cmp !== 0) return cmp;
+          }
+          return a.length - b.length;
+        }
+
+        if (!aIsArray && !bIsArray) {
+          const ta = typeof a;
+          const tb = typeof b;
+
+          if (ta === tb) {
+            if (ta === "string") {
+              if (a < b) return -1;
+              if (a > b) return 1;
+              return 0;
+            }
+            if (ta === "number") {
+              if (isNaN(a) && isNaN(b)) return 0;
+              return a - b;
+            }
+            if (ta === "boolean") {
+              if (a === b) return 0;
+              return a ? 1 : -1;
+            }
+            if (a === null && b === null) return 0;
+            if (a == b) return 0;
+          }
+
+          if (ta !== tb) return ta < tb ? -1 : 1;
+          const sa = String(a);
+          const sb = String(b);
+          if (sa < sb) return -1;
+          if (sa > sb) return 1;
           return 0;
         }
-        if (ta === "number") {
-          if (isNaN(a) && isNaN(b)) return 0;
-          return a - b;
-        }
-        if (ta === "boolean") {
-          if (a === b) return 0;
-          return a ? 1 : -1;
-        }
-        if (a === null && b === null) return 0;
-        if (a == b) return 0;
+
+        if (aIsArray && !bIsArray) return -1;
+        if (!aIsArray && bIsArray) return 1;
+        return 0;
       }
 
-      if (ta !== tb) return ta < tb ? -1 : 1;
-      const sa = String(a);
-      const sb = String(b);
-      if (sa < sb) return -1;
-      if (sa > sb) return 1;
-      return 0;
-    }
+      function freeze(value) {
+        const t = jsTypeTag(value);
 
-    if (aIsArray && !bIsArray) return -1;
-    if (!aIsArray && bIsArray) return 1;
-    return 0;
-  }
+        if (t === "object") {
+          const items = Object.keys(value)
+            .sort()
+            .map((k) => [k, freeze(value[k])]);
+          return ["dict", items];
+        }
+        if (t === "array") {
+          const elems = value.map((v) => freeze(v));
+          elems.sort(compareFrozen);
+          return ["list", elems];
+        }
+        if (t === "string") return ["str", value];
+        if (t === "boolean") return ["bool", value];
+        if (t === "null") return ["null", null];
+        if (t === "number") {
+          let num = value;
+          if (Object.is(num, -0)) num = 0;
+          return ["num", num];
+        }
+        return ["other", String(value)];
+      }
 
-  function freeze(value) {
-    const t = jsTypeTag(value);
+      function normalize(value) {
+        const t = jsTypeTag(value);
 
-    if (t === "object") {
-      const items = Object.keys(value)
-        .sort()
-        .map((k) => [k, freeze(value[k])]);
-      return ["dict", items];
-    }
-    if (t === "array") {
-      const elems = value.map((v) => freeze(v));
-      elems.sort(compareFrozen);
-      return ["list", elems];
-    }
-    if (t === "string") return ["str", value];
-    if (t === "boolean") return ["bool", value];
-    if (t === "null") return ["null", null];
-    if (t === "number") {
-      let num = value;
-      if (Object.is(num, -0)) num = 0;
-      return ["num", num];
-    }
-    return ["other", String(value)];
-  }
+        if (t === "object") {
+          const result = {};
+          Object.keys(value)
+            .sort()
+            .forEach((k) => {
+              result[k] = normalize(value[k]);
+            });
+          return result;
+        }
 
-  function normalize(value) {
-    const t = jsTypeTag(value);
+        if (t === "array") {
+          const normElems = value.map((v) => normalize(v));
+          normElems.sort((a, b) => compareFrozen(freeze(a), freeze(b)));
+          return normElems;
+        }
 
-    if (t === "object") {
-      const result = {};
-      Object.keys(value)
-        .sort()
-        .forEach((k) => {
-          result[k] = normalize(value[k]);
-        });
-      return result;
-    }
+        return value;
+      }
 
-    if (t === "array") {
-      const normElems = value.map((v) => normalize(v));
-      normElems.sort((a, b) => compareFrozen(freeze(a), freeze(b)));
-      return normElems;
-    }
+      function compareValues(a, b) {
+        const typeA = jsTypeTag(a);
+        const typeB = jsTypeTag(b);
 
-    return value;
-  }
+        if (typeA !== typeB) {
+          return {
+            equal: false,
+            message: `Tipi top-level diversi: ${pyTypeName(a)} vs ${pyTypeName(b)}`
+          };
+        }
 
-  function compareValues(a, b) {
-    const typeA = jsTypeTag(a);
-    const typeB = jsTypeTag(b);
+        const la = topLevelLen(a);
+        const lb = topLevelLen(b);
+        if (la !== lb) {
+          if (Array.isArray(a) && Array.isArray(b)) {
+            return {
+              equal: false,
+              message: `Liste con dimensioni diverse: ${la} vs ${lb}`
+            };
+          }
+          return {
+            equal: false,
+            message: `Lunghezze top-level diverse: ${la} vs ${lb}`
+          };
+        }
 
-    if (typeA !== typeB) {
-      return {
-        equal: false,
-        message: `Tipi top-level diversi: ${pyTypeName(a)} vs ${pyTypeName(b)}`
-      };
-    }
+        const fa = freeze(a);
+        const fb = freeze(b);
+        if (compareFrozen(fa, fb) !== 0) {
+          return {
+            equal: false,
+            message: "Contenuto diverso (ignorando l'ordine)"
+          };
+        }
 
-    const la = topLevelLen(a);
-    const lb = topLevelLen(b);
-    if (la !== lb) {
-      if (Array.isArray(a) && Array.isArray(b)) {
         return {
-          equal: false,
-          message: `Liste con dimensioni diverse: ${la} vs ${lb}`
+          equal: true,
+          message: "EQUAL (ignoring order and requiring same top-level length)"
         };
       }
-      return {
-        equal: false,
-        message: `Lunghezze top-level diverse: ${la} vs ${lb}`
-      };
-    }
 
-    const fa = freeze(a);
-    const fb = freeze(b);
-    if (compareFrozen(fa, fb) !== 0) {
-      return {
-        equal: false,
-        message: "Contenuto diverso (ignorando l'ordine)"
-      };
-    }
+      function pathKey(path) {
+        return JSON.stringify(path);
+      }
 
-    return {
-      equal: true,
-      message: "EQUAL (ignoring order and requiring same top-level length)"
-    };
-  }
+      function chooseJoinKey(list1, list2) {
+        if (!Array.isArray(list1) || !Array.isArray(list2)) return null;
+        if (list1.length === 0 || list2.length === 0) return null;
+        if (!list1.every((e) => e && typeof e === "object" && !Array.isArray(e)))
+          return null;
+        if (!list2.every((e) => e && typeof e === "object" && !Array.isArray(e)))
+          return null;
 
-  function pathKey(path) {
-    return JSON.stringify(path);
-  }
-
-  function chooseJoinKey(list1, list2) {
-    if (!Array.isArray(list1) || !Array.isArray(list2)) return null;
-    if (list1.length === 0 || list2.length === 0) return null;
-    if (!list1.every((e) => e && typeof e === "object" && !Array.isArray(e)))
-      return null;
-    if (!list2.every((e) => e && typeof e === "object" && !Array.isArray(e)))
-      return null;
-
-    let commonKeys = new Set(Object.keys(list1[0]));
-    for (const e of list1) {
-      for (const k of Array.from(commonKeys)) {
-        if (!Object.prototype.hasOwnProperty.call(e, k)) {
-          commonKeys.delete(k);
+        let commonKeys = new Set(Object.keys(list1[0]));
+        for (const e of list1) {
+          for (const k of Array.from(commonKeys)) {
+            if (!Object.prototype.hasOwnProperty.call(e, k)) {
+              commonKeys.delete(k);
+            }
+          }
         }
-      }
-    }
-    for (const e of list2) {
-      for (const k of Array.from(commonKeys)) {
-        if (!Object.prototype.hasOwnProperty.call(e, k)) {
-          commonKeys.delete(k);
-        }
-      }
-    }
-
-    if (commonKeys.size === 0) return null;
-
-    function isUniqueKey(k, lst) {
-      const vals = [];
-      for (const e of lst) {
-        const v = e[k];
-        const tv = jsTypeTag(v);
-        if (!["string", "number", "boolean", "null"].includes(tv)) {
-          return false;
-        }
-        vals.push(v);
-      }
-      return new Set(vals).size === vals.length;
-    }
-
-    const candidates = [];
-    for (const k of commonKeys) {
-      if (isUniqueKey(k, list1) && isUniqueKey(k, list2)) {
-        candidates.push(k);
-      }
-    }
-    if (candidates.length === 0) return null;
-
-    for (const pref of PREFERRED_KEY_NAMES) {
-      if (candidates.includes(pref)) return pref;
-    }
-
-    candidates.sort();
-    return candidates[0];
-  }
-
-  function diffBidir(v1, v2, path1 = [], path2 = []) {
-    const left = new Set();
-    const right = new Set();
-
-    const type1 = jsTypeTag(v1);
-    const type2 = jsTypeTag(v2);
-
-    if (type1 !== type2) {
-      left.add(pathKey(path1));
-      right.add(pathKey(path2));
-      return { left, right };
-    }
-
-    if (type1 === "object") {
-      const keys = new Set([...Object.keys(v1), ...Object.keys(v2)]);
-      for (const k of keys) {
-        const has1 = Object.prototype.hasOwnProperty.call(v1, k);
-        const has2 = Object.prototype.hasOwnProperty.call(v2, k);
-        const p1 = path1.concat([k]);
-        const p2 = path2.concat([k]);
-
-        if (!has1) {
-          right.add(pathKey(p2));
-        } else if (!has2) {
-          left.add(pathKey(p1));
-        } else {
-          const sub = diffBidir(v1[k], v2[k], p1, p2);
-          sub.left.forEach((x) => left.add(x));
-          sub.right.forEach((x) => right.add(x));
-        }
-      }
-      return { left, right };
-    }
-
-    if (type1 === "array") {
-      const joinKey = chooseJoinKey(v1, v2);
-      if (joinKey !== null) {
-        const idx1 = new Map();
-        const idx2 = new Map();
-
-        v1.forEach((e, i) => {
-          idx1.set(e[joinKey], i);
-        });
-        v2.forEach((e, i) => {
-          idx2.set(e[joinKey], i);
-        });
-
-        const keys1 = new Set(idx1.keys());
-        const keys2 = new Set(idx2.keys());
-
-        for (const k of keys1) {
-          if (keys2.has(k)) {
-            const i1 = idx1.get(k);
-            const i2 = idx2.get(k);
-            const p1 = path1.concat([i1]);
-            const p2 = path2.concat([i2]);
-            const sub = diffBidir(v1[i1], v2[i2], p1, p2);
-            sub.left.forEach((x) => left.add(x));
-            sub.right.forEach((x) => right.add(x));
+        for (const e of list2) {
+          for (const k of Array.from(commonKeys)) {
+            if (!Object.prototype.hasOwnProperty.call(e, k)) {
+              commonKeys.delete(k);
+            }
           }
         }
 
-        for (const k of keys1) {
-          if (!keys2.has(k)) {
-            const i1 = idx1.get(k);
-            left.add(pathKey(path1.concat([i1])));
+        if (commonKeys.size === 0) return null;
+
+        function isUniqueKey(k, lst) {
+          const vals = [];
+          for (const e of lst) {
+            const v = e[k];
+            const tv = jsTypeTag(v);
+            if (!["string", "number", "boolean", "null"].includes(tv)) {
+              return false;
+            }
+            vals.push(v);
           }
+          return new Set(vals).size === vals.length;
         }
 
-        for (const k of keys2) {
-          if (!keys1.has(k)) {
-            const i2 = idx2.get(k);
-            right.add(pathKey(path2.concat([i2])));
+        const candidates = [];
+        for (const k of commonKeys) {
+          if (isUniqueKey(k, list1) && isUniqueKey(k, list2)) {
+            candidates.push(k);
           }
+        }
+        if (candidates.length === 0) return null;
+
+        for (const pref of PREFERRED_KEY_NAMES) {
+          if (candidates.includes(pref)) return pref;
+        }
+
+        candidates.sort();
+        return candidates[0];
+      }
+
+      function diffBidir(v1, v2, path1 = [], path2 = []) {
+        const left = new Set();
+        const right = new Set();
+
+        const type1 = jsTypeTag(v1);
+        const type2 = jsTypeTag(v2);
+
+        if (type1 !== type2) {
+          left.add(pathKey(path1));
+          right.add(pathKey(path2));
+          return { left, right };
+        }
+
+        if (type1 === "object") {
+          const keys = new Set([...Object.keys(v1), ...Object.keys(v2)]);
+          for (const k of keys) {
+            const has1 = Object.prototype.hasOwnProperty.call(v1, k);
+            const has2 = Object.prototype.hasOwnProperty.call(v2, k);
+            const p1 = path1.concat([k]);
+            const p2 = path2.concat([k]);
+
+            if (!has1) {
+              right.add(pathKey(p2));
+            } else if (!has2) {
+              left.add(pathKey(p1));
+            } else {
+              const sub = diffBidir(v1[k], v2[k], p1, p2);
+              sub.left.forEach((x) => left.add(x));
+              sub.right.forEach((x) => right.add(x));
+            }
+          }
+          return { left, right };
+        }
+
+        if (type1 === "array") {
+          const joinKey = chooseJoinKey(v1, v2);
+          if (joinKey !== null) {
+            const idx1 = new Map();
+            const idx2 = new Map();
+
+            v1.forEach((e, i) => {
+              idx1.set(e[joinKey], i);
+            });
+            v2.forEach((e, i) => {
+              idx2.set(e[joinKey], i);
+            });
+
+            const keys1 = new Set(idx1.keys());
+            const keys2 = new Set(idx2.keys());
+
+            for (const k of keys1) {
+              if (keys2.has(k)) {
+                const i1 = idx1.get(k);
+                const i2 = idx2.get(k);
+                const p1 = path1.concat([i1]);
+                const p2 = path2.concat([i2]);
+                const sub = diffBidir(v1[i1], v2[i2], p1, p2);
+                sub.left.forEach((x) => left.add(x));
+                sub.right.forEach((x) => right.add(x));
+              }
+            }
+
+            for (const k of keys1) {
+              if (!keys2.has(k)) {
+                const i1 = idx1.get(k);
+                left.add(pathKey(path1.concat([i1])));
+              }
+            }
+
+            for (const k of keys2) {
+              if (!keys1.has(k)) {
+                const i2 = idx2.get(k);
+                right.add(pathKey(path2.concat([i2])));
+              }
+            }
+
+            return { left, right };
+          }
+
+          const maxLen = Math.max(v1.length, v2.length);
+          for (let i = 0; i < maxLen; i++) {
+            const p1 = path1.concat([i]);
+            const p2 = path2.concat([i]);
+            if (i >= v1.length) {
+              right.add(pathKey(p2));
+            } else if (i >= v2.length) {
+              left.add(pathKey(p1));
+            } else {
+              const sub = diffBidir(v1[i], v2[i], p1, p2);
+              sub.left.forEach((x) => left.add(x));
+              sub.right.forEach((x) => right.add(x));
+            }
+          }
+          return { left, right };
+        }
+
+        if (
+          v1 !== v2 &&
+          !(typeof v1 === "number" && typeof v2 === "number" && isNaN(v1) && isNaN(v2))
+        ) {
+          left.add(pathKey(path1));
+          right.add(pathKey(path2));
         }
 
         return { left, right };
       }
 
-      const maxLen = Math.max(v1.length, v2.length);
-      for (let i = 0; i < maxLen; i++) {
-        const p1 = path1.concat([i]);
-        const p2 = path2.concat([i]);
-        if (i >= v1.length) {
-          right.add(pathKey(p2));
-        } else if (i >= v2.length) {
-          left.add(pathKey(p1));
-        } else {
-          const sub = diffBidir(v1[i], v2[i], p1, p2);
-          sub.left.forEach((x) => left.add(x));
-          sub.right.forEach((x) => right.add(x));
+      function formatWithPositions(value) {
+        const lines = [];
+        const positions = {};
+
+        function addPos(path, lineIdx) {
+          const key = pathKey(path);
+          if (!positions[key]) positions[key] = [];
+          positions[key].push(lineIdx);
         }
-      }
-      return { left, right };
-    }
 
-    if (
-      v1 !== v2 &&
-      !(typeof v1 === "number" && typeof v2 === "number" && isNaN(v1) && isNaN(v2))
-    ) {
-      left.add(pathKey(path1));
-      right.add(pathKey(path2));
-    }
+        function write(v, indent, path, isLast) {
+          const sp = " ".repeat(indent);
+          const t = jsTypeTag(v);
 
-    return { left, right };
-  }
+          if (t === "object") {
+            const lineIdxOpen = lines.length;
+            lines.push(sp + "{");
+            addPos(path, lineIdxOpen);
 
-  function formatWithPositions(value) {
-    const lines = [];
-    const positions = {};
+            const keys = Object.keys(v);
+            for (let idx = 0; idx < keys.length; idx++) {
+              const k = keys[idx];
+              const child = v[k];
+              const lastKey = idx === keys.length - 1;
+              const keyRepr = JSON.stringify(k);
+              const keyIndent = " ".repeat(indent + 2);
+              const childPath = path.concat([k]);
+              const childType = jsTypeTag(child);
 
-    function addPos(path, lineIdx) {
-      const key = pathKey(path);
-      if (!positions[key]) positions[key] = [];
-      positions[key].push(lineIdx);
-    }
+              if (childType === "object" || childType === "array") {
+                const lineIdx = lines.length;
+                lines.push(keyIndent + keyRepr + ":");
+                addPos(childPath, lineIdx);
+                addPos(path, lineIdx);
+                write(child, indent + 2, childPath, lastKey);
+              } else {
+                const valRepr = JSON.stringify(child);
+                let line = keyIndent + keyRepr + ": " + valRepr;
+                if (!lastKey) line += ",";
+                const lineIdx = lines.length;
+                lines.push(line);
+                addPos(childPath, lineIdx);
+                addPos(path, lineIdx);
+              }
+            }
 
-    function write(v, indent, path, isLast) {
-      const sp = " ".repeat(indent);
-      const t = jsTypeTag(v);
+            let closing = sp + "}";
+            if (!isLast) closing += ",";
+            const lineIdxClose = lines.length;
+            lines.push(closing);
+            addPos(path, lineIdxClose);
+          } else if (t === "array") {
+            const lineIdxOpen = lines.length;
+            lines.push(sp + "[");
+            addPos(path, lineIdxOpen);
 
-      if (t === "object") {
-        const lineIdxOpen = lines.length;
-        lines.push(sp + "{");
-        addPos(path, lineIdxOpen);
+            for (let idx = 0; idx < v.length; idx++) {
+              const item = v[idx];
+              const lastItem = idx === v.length - 1;
+              const itemPath = path.concat([idx]);
+              const itemType = jsTypeTag(item);
 
-        const keys = Object.keys(v);
-        for (let idx = 0; idx < keys.length; idx++) {
-          const k = keys[idx];
-          const child = v[k];
-          const lastKey = idx === keys.length - 1;
-          const keyRepr = JSON.stringify(k);
-          const keyIndent = " ".repeat(indent + 2);
-          const childPath = path.concat([k]);
-          const childType = jsTypeTag(child);
+              if (itemType === "object" || itemType === "array") {
+                write(item, indent + 2, itemPath, lastItem);
+              } else {
+                const valRepr = JSON.stringify(item);
+                let line = " ".repeat(indent + 2) + valRepr;
+                if (!lastItem) line += ",";
+                const lineIdx = lines.length;
+                lines.push(line);
+                addPos(itemPath, lineIdx);
+                addPos(path, lineIdx);
+              }
+            }
 
-          if (childType === "object" || childType === "array") {
-            const lineIdx = lines.length;
-            lines.push(keyIndent + keyRepr + ":");
-            addPos(childPath, lineIdx);
-            addPos(path, lineIdx);
-            write(child, indent + 2, childPath, lastKey);
+            let closing = sp + "]";
+            if (!isLast) closing += ",";
+            const lineIdxClose = lines.length;
+            lines.push(closing);
+            addPos(path, lineIdxClose);
           } else {
-            const valRepr = JSON.stringify(child);
-            let line = keyIndent + keyRepr + ": " + valRepr;
-            if (!lastKey) line += ",";
+            const valRepr = JSON.stringify(v);
+            let line = sp + valRepr;
+            if (!isLast) line += ",";
             const lineIdx = lines.length;
             lines.push(line);
-            addPos(childPath, lineIdx);
             addPos(path, lineIdx);
           }
         }
 
-        let closing = sp + "}";
-        if (!isLast) closing += ",";
-        const lineIdxClose = lines.length;
-        lines.push(closing);
-        addPos(path, lineIdxClose);
-      } else if (t === "array") {
-        const lineIdxOpen = lines.length;
-        lines.push(sp + "[");
-        addPos(path, lineIdxOpen);
+        write(value, 0, [], true);
+        return { text: lines.join("\n"), positions };
+      }
 
-        for (let idx = 0; idx < v.length; idx++) {
-          const item = v[idx];
-          const lastItem = idx === v.length - 1;
-          const itemPath = path.concat([idx]);
-          const itemType = jsTypeTag(item);
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
 
-          if (itemType === "object" || itemType === "array") {
-            write(item, indent + 2, itemPath, lastItem);
-          } else {
-            const valRepr = JSON.stringify(item);
-            let line = " ".repeat(indent + 2) + valRepr;
-            if (!lastItem) line += ",";
-            const lineIdx = lines.length;
-            lines.push(line);
-            addPos(itemPath, lineIdx);
-            addPos(path, lineIdx);
+      // Allineamento linee: crea una sequenza di coppie {left,right} con possibili null
+      function alignLines(lines1, lines2) {
+        const n = lines1.length;
+        const m = lines2.length;
+
+        // fallback semplice se troppo grandi (evitiamo O(n*m) enorme)
+        if (n * m > 200000) {
+          const maxLen = Math.max(n, m);
+          const res = [];
+          for (let i = 0; i < maxLen; i++) {
+            res.push({
+              left: i < n ? i : null,
+              right: i < m ? i : null
+            });
+          }
+          return res;
+        }
+
+        // LCS-based diff
+        const dp = Array(n + 1);
+        for (let i = 0; i <= n; i++) {
+          dp[i] = new Array(m + 1).fill(0);
+        }
+
+        for (let i = n - 1; i >= 0; i--) {
+          for (let j = m - 1; j >= 0; j--) {
+            if (lines1[i] === lines2[j]) {
+              dp[i][j] = 1 + dp[i + 1][j + 1];
+            } else {
+              dp[i][j] = Math.max(dp[i + 1][j], dp[i][j + 1]);
+            }
           }
         }
 
-        let closing = sp + "]";
-        if (!isLast) closing += ",";
-        const lineIdxClose = lines.length;
-        lines.push(closing);
-        addPos(path, lineIdxClose);
-      } else {
-        const valRepr = JSON.stringify(v);
-        let line = sp + valRepr;
-        if (!isLast) line += ",";
-        const lineIdx = lines.length;
-        lines.push(line);
-        addPos(path, lineIdx);
+        const aligned = [];
+        let i = 0, j = 0;
+        while (i < n && j < m) {
+          if (lines1[i] === lines2[j]) {
+            aligned.push({ left: i, right: j });
+            i++;
+            j++;
+          } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+            aligned.push({ left: i, right: null });
+            i++;
+          } else {
+            aligned.push({ left: null, right: j });
+            j++;
+          }
+        }
+        while (i < n) {
+          aligned.push({ left: i, right: null });
+          i++;
+        }
+        while (j < m) {
+          aligned.push({ left: null, right: j });
+          j++;
+        }
+
+        return aligned;
       }
-    }
 
-    write(value, 0, [], true);
-    return { text: lines.join("\n"), positions };
-  }
+      // Mostra diff con allineamento (righe vuote sul lato opposto per campi mancanti)
+      function showSideBySideDiff(text1, pos1, text2, pos2, leftDiffPaths, rightDiffPaths) {
+        const leftOut = document.getElementById("output1");
+        const rightOut = document.getElementById("output2");
 
-  function escapeHtml(str) {
-    return str
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
+        const lines1 = text1.split("\n");
+        const lines2 = text2.split("\n");
 
-  // Allineamento linee: crea una sequenza di coppie {left,right} con possibili null
-  function alignLines(lines1, lines2) {
-    const n = lines1.length;
-    const m = lines2.length;
+        const diffLinesLeft = new Set();
+        const diffLinesRight = new Set();
 
-    // fallback semplice se troppo grandi (evitiamo O(n*m) enorme)
-    if (n * m > 200000) {
-      const maxLen = Math.max(n, m);
-      const res = [];
-      for (let i = 0; i < maxLen; i++) {
-        res.push({
-          left: i < n ? i : null,
-          right: i < m ? i : null
+        leftDiffPaths.forEach((pathStr) => {
+          const idxs = pos1[pathStr];
+          if (idxs) {
+            idxs.forEach((i) => diffLinesLeft.add(i));
+          }
         });
+
+        rightDiffPaths.forEach((pathStr) => {
+          const idxs = pos2[pathStr];
+          if (idxs) {
+            idxs.forEach((i) => diffLinesRight.add(i));
+          }
+        });
+
+        const aligned = alignLines(lines1, lines2);
+
+        let htmlLeft = "";
+        let htmlRight = "";
+
+        for (let k = 0; k < aligned.length; k++) {
+          const pair = aligned[k];
+          const lineNo = k + 1;
+
+          // LEFT
+          let leftClass = "line";
+          let leftContent = "&nbsp;";
+
+          if (pair.left !== null) {
+            const raw = lines1[pair.left] || "";
+            const escaped = escapeHtml(raw);
+            leftContent = escaped || "&nbsp;";
+            if (diffLinesLeft.has(pair.left)) {
+              leftClass += " diff-line";
+            }
+          } else if (pair.right !== null && diffLinesRight.has(pair.right)) {
+            // campo mancante a sinistra -> riga vuota evidenziata
+            leftClass += " diff-line";
+          }
+
+          htmlLeft +=
+            '<span class="' + leftClass + '"><span class="line-number">' +
+            lineNo +
+            "</span>" +
+            leftContent +
+            "</span>\n";
+
+          // RIGHT
+          let rightClass = "line";
+          let rightContent = "&nbsp;";
+
+          if (pair.right !== null) {
+            const rawR = lines2[pair.right] || "";
+            const escapedR = escapeHtml(rawR);
+            rightContent = escapedR || "&nbsp;";
+            if (diffLinesRight.has(pair.right)) {
+              rightClass += " diff-line";
+            }
+          } else if (pair.left !== null && diffLinesLeft.has(pair.left)) {
+            // campo mancante a destra -> riga vuota evidenziata
+            rightClass += " diff-line";
+          }
+
+          htmlRight +=
+            '<span class="' + rightClass + '"><span class="line-number">' +
+            lineNo +
+            "</span>" +
+            rightContent +
+            "</span>\n";
+        }
+
+        leftOut.innerHTML = htmlLeft;
+        rightOut.innerHTML = htmlRight;
       }
-      return res;
-    }
 
-    // LCS-based diff
-    const dp = Array(n + 1);
-    for (let i = 0; i <= n; i++) {
-      dp[i] = new Array(m + 1).fill(0);
-    }
+      function onCompare() {
+        const leftInput = document.getElementById("input1");
+        const rightInput = document.getElementById("input2");
 
-    for (let i = n - 1; i >= 0; i--) {
-      for (let j = m - 1; j >= 0; j--) {
-        if (lines1[i] === lines2[j]) {
-          dp[i][j] = 1 + dp[i + 1][j + 1];
+        // ✅ nuovo alert
+        const resultBox = document.getElementById("result");
+        const resultTitle = document.getElementById("resultTitle");
+        const resultText = document.getElementById("resultText");
+
+        const raw1 = leftInput.value.trim();
+        const raw2 = rightInput.value.trim();
+
+        if (!raw1 || !raw2) {
+          alert("Inserisci entrambi i JSON (o base64) prima di confrontare.");
+          return;
+        }
+
+        let j1, j2;
+        try {
+          j1 = parseJsonOrBase64(raw1, "Input 1");
+        } catch (e) {
+          alert("Errore JSON 1: " + e.message);
+          return;
+        }
+
+        try {
+          j2 = parseJsonOrBase64(raw2, "Input 2");
+        } catch (e) {
+          alert("Errore JSON 2: " + e.message);
+          return;
+        }
+
+        const n1 = normalize(j1);
+        const n2 = normalize(j2);
+
+        const formatted1 = formatWithPositions(n1);
+        const formatted2 = formatWithPositions(n2);
+
+        lastFormattedText1 = formatted1.text;
+        lastFormattedText2 = formatted2.text;
+
+        const diff = diffBidir(n1, n2);
+
+        showSideBySideDiff(
+          formatted1.text,
+          formatted1.positions,
+          formatted2.text,
+          formatted2.positions,
+          diff.left,
+          diff.right
+        );
+
+        // 👉 confronto logico
+        const cmp = compareValues(j1, j2);
+
+        // 🔄 reset classi alert di Bootstrap
+        resultBox.classList.remove(
+          "alert-success",
+          "alert-danger",
+          "alert-warning",
+          "alert-info",
+          "d-none"
+        );
+
+        // 🎨 colore diverso in base al risultato
+        if (cmp.equal) {
+          resultBox.classList.add("alert-success");
+          resultTitle.textContent = "I due JSON sono equivalenti";
         } else {
-          dp[i][j] = Math.max(dp[i + 1][j], dp[i][j + 1]);
+          resultBox.classList.add("alert-danger");
+          resultTitle.textContent = "I due JSON sono diversi";
+        }
+
+        // 💬 messaggio dettagliato (quello che prima mettevi nello span)
+        resultText.textContent = cmp.message;
+
+        // assicura che sia visibile (se usavi style="display:none")
+        resultBox.style.display = "block";
+      }
+
+
+      async function copyToClipboard(text) {
+        if (!text) {
+          alert("Niente da copiare. Esegui prima un confronto.");
+          return;
+        }
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+          }
+        } catch (e) {
+          alert("Impossibile copiare negli appunti: " + (e && e.message ? e.message : e));
         }
       }
-    }
 
-    const aligned = [];
-    let i = 0, j = 0;
-    while (i < n && j < m) {
-      if (lines1[i] === lines2[j]) {
-        aligned.push({ left: i, right: j });
-        i++;
-        j++;
-      } else if (dp[i + 1][j] >= dp[i][j + 1]) {
-        aligned.push({ left: i, right: null });
-        i++;
-      } else {
-        aligned.push({ left: null, right: j });
-        j++;
-      }
-    }
-    while (i < n) {
-      aligned.push({ left: i, right: null });
-      i++;
-    }
-    while (j < m) {
-      aligned.push({ left: null, right: j });
-      j++;
-    }
+      window.addEventListener("DOMContentLoaded", () => {
+        const btn = document.getElementById("compareButton");
+        btn.addEventListener("click", onCompare);
 
-    return aligned;
-  }
+        document.getElementById("copyLeft").addEventListener("click", () => {
+          copyToClipboard(lastFormattedText1);
+        });
 
-  // Mostra diff con allineamento (righe vuote sul lato opposto per campi mancanti)
-  function showSideBySideDiff(text1, pos1, text2, pos2, leftDiffPaths, rightDiffPaths) {
-    const leftOut = document.getElementById("output1");
-    const rightOut = document.getElementById("output2");
+        document.getElementById("copyRight").addEventListener("click", () => {
+          copyToClipboard(lastFormattedText2);
+        });
 
-    const lines1 = text1.split("\n");
-    const lines2 = text2.split("\n");
+        const leftOut = document.getElementById("output1");
+        const rightOut = document.getElementById("output2");
 
-    const diffLinesLeft = new Set();
-    const diffLinesRight = new Set();
+        let isSyncingScroll = false;
 
-    leftDiffPaths.forEach((pathStr) => {
-      const idxs = pos1[pathStr];
-      if (idxs) {
-        idxs.forEach((i) => diffLinesLeft.add(i));
-      }
-    });
-
-    rightDiffPaths.forEach((pathStr) => {
-      const idxs = pos2[pathStr];
-      if (idxs) {
-        idxs.forEach((i) => diffLinesRight.add(i));
-      }
-    });
-
-    const aligned = alignLines(lines1, lines2);
-
-    let htmlLeft = "";
-    let htmlRight = "";
-
-    for (let k = 0; k < aligned.length; k++) {
-      const pair = aligned[k];
-      const lineNo = k + 1;
-
-      // LEFT
-      let leftClass = "line";
-      let leftContent = "&nbsp;";
-
-      if (pair.left !== null) {
-        const raw = lines1[pair.left] || "";
-        const escaped = escapeHtml(raw);
-        leftContent = escaped || "&nbsp;";
-        if (diffLinesLeft.has(pair.left)) {
-          leftClass += " diff-line";
+        function syncScroll(source, target) {
+          if (isSyncingScroll) return;
+          isSyncingScroll = true;
+          target.scrollTop = source.scrollTop;
+          target.scrollLeft = source.scrollLeft;
+          isSyncingScroll = false;
         }
-      } else if (pair.right !== null && diffLinesRight.has(pair.right)) {
-        // campo mancante a sinistra -> riga vuota evidenziata
-        leftClass += " diff-line";
-      }
 
-      htmlLeft +=
-        '<span class="' + leftClass + '"><span class="line-number">' +
-        lineNo +
-        "</span>" +
-        leftContent +
-        "</span>\n";
+        leftOut.addEventListener("scroll", () => syncScroll(leftOut, rightOut));
+        rightOut.addEventListener("scroll", () => syncScroll(rightOut, leftOut));
 
-      // RIGHT
-      let rightClass = "line";
-      let rightContent = "&nbsp;";
-
-      if (pair.right !== null) {
-        const rawR = lines2[pair.right] || "";
-        const escapedR = escapeHtml(rawR);
-        rightContent = escapedR || "&nbsp;";
-        if (diffLinesRight.has(pair.right)) {
-          rightClass += " diff-line";
+        const yearEl = document.getElementById("yearFooter");
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
         }
-      } else if (pair.left !== null && diffLinesLeft.has(pair.left)) {
-        // campo mancante a destra -> riga vuota evidenziata
-        rightClass += " diff-line";
-      }
-
-      htmlRight +=
-        '<span class="' + rightClass + '"><span class="line-number">' +
-        lineNo +
-        "</span>" +
-        rightContent +
-        "</span>\n";
-    }
-
-    leftOut.innerHTML = htmlLeft;
-    rightOut.innerHTML = htmlRight;
-  }
-
-  function onCompare() {
-    const leftInput = document.getElementById("input1");
-    const rightInput = document.getElementById("input2");
-    const resultLabel = document.getElementById("result");
-
-    const raw1 = leftInput.value.trim();
-    const raw2 = rightInput.value.trim();
-
-    if (!raw1 || !raw2) {
-      alert("Inserisci entrambi i JSON (o base64) prima di confrontare.");
-      return;
-    }
-
-    let j1, j2;
-    try {
-      j1 = parseJsonOrBase64(raw1, "Input 1");
-    } catch (e) {
-      alert("Errore JSON 1: " + e.message);
-      return;
-    }
-
-    try {
-      j2 = parseJsonOrBase64(raw2, "Input 2");
-    } catch (e) {
-      alert("Errore JSON 2: " + e.message);
-      return;
-    }
-
-    const n1 = normalize(j1);
-    const n2 = normalize(j2);
-
-    const formatted1 = formatWithPositions(n1);
-    const formatted2 = formatWithPositions(n2);
-
-    lastFormattedText1 = formatted1.text;
-    lastFormattedText2 = formatted2.text;
-
-    const diff = diffBidir(n1, n2);
-
-    showSideBySideDiff(
-      formatted1.text,
-      formatted1.positions,
-      formatted2.text,
-      formatted2.positions,
-      diff.left,
-      diff.right
-    );
-
-    const cmp = compareValues(j1, j2);
-    resultLabel.textContent = cmp.message;
-    resultLabel.style.color = cmp.equal ? "green" : "red";
-  }
-
-  async function copyToClipboard(text) {
-    if (!text) {
-      alert("Niente da copiare. Esegui prima un confronto.");
-      return;
-    }
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(text);
-      } else {
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        ta.style.position = "fixed";
-        ta.style.left = "-9999px";
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-      }
-    } catch (e) {
-      alert("Impossibile copiare negli appunti: " + (e && e.message ? e.message : e));
-    }
-  }
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("compareButton");
-    btn.addEventListener("click", onCompare);
-
-    document.getElementById("copyLeft").addEventListener("click", () => {
-      copyToClipboard(lastFormattedText1);
-    });
-
-    document.getElementById("copyRight").addEventListener("click", () => {
-      copyToClipboard(lastFormattedText2);
-    });
-
-    const leftOut = document.getElementById("output1");
-    const rightOut = document.getElementById("output2");
-
-    let isSyncingScroll = false;
-
-    function syncScroll(source, target) {
-      if (isSyncingScroll) return;
-      isSyncingScroll = true;
-      target.scrollTop = source.scrollTop;
-      target.scrollLeft = source.scrollLeft;
-      isSyncingScroll = false;
-    }
-
-    leftOut.addEventListener("scroll", () => syncScroll(leftOut, rightOut));
-    rightOut.addEventListener("scroll", () => syncScroll(rightOut, leftOut));
-
-    const yearEl = document.getElementById("yearFooter");
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  });
-})();
-</script>
+      });
+    })();
+  </script>
 </body>
+
 </html>
